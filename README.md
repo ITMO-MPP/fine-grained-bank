@@ -13,7 +13,8 @@
   * Синхронизация должна осуществляться для каждого счета по отдельности. 
   * Добавьте поле `lock` типа `java.util.concurrent.locks.ReentrantLock` (класс для примитива блокировки) в класс `BankImpl.Account`
     и используйте его для блокировки операций над соответствующим счетом.
-  * **Hint:** В Kotlin можно использовать [`lock.withLock { ... }`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/java.util.concurrent.locks.-lock/with-lock.html).   
+  * В Kotlin можно использовать [`lock.withLock { ... }`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/java.util.concurrent.locks.-lock/with-lock.html)
+    для работы с одним или двумя счетами, но для блокировки всех счетов потребуется напрямую использовать методы `lock()` и `unlock()`.
 * Для обеспечения линеаризуемости операций должна использоваться двухфазная блокировка для всех операций.
 * Для избегания ситуации взаимной блокировки (deadlock) необходимо использовать иерархическую блокировку.
 * Весь код должен содержаться в файле `src/BankImpl.kt` или `src/BankImpl.java`. 

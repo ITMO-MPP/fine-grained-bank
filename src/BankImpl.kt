@@ -22,8 +22,10 @@ class BankImpl(n: Int) : Bank {
      * :TODO: This method has to be made thread-safe.
      */
     override val totalAmount: Long
-        get() = accounts.sumOf { account ->
-            account.amount
+        get() {
+            return accounts.sumOf { account ->
+                account.amount
+            }
         }
 
     /**
