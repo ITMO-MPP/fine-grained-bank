@@ -1,9 +1,9 @@
-package fgbank;
-
 /**
  * Bank implementation.
  *
  * <p>:TODO: This implementation has to be made thread-safe.
+ *
+ * @author :TODO: LastName FirstName
  */
 public class BankImpl implements Bank {
     /**
@@ -22,29 +22,24 @@ public class BankImpl implements Bank {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public int getNumberOfAccounts() {
         return accounts.length;
     }
 
     /**
-     * {@inheritDoc}
      * <p>:TODO: This method has to be made thread-safe.
      */
     @Override
-    public synchronized long getAmount(int index) {
+    public long getAmount(int index) {
         return accounts[index].amount;
     }
 
     /**
-     * {@inheritDoc}
      * <p>:TODO: This method has to be made thread-safe.
      */
     @Override
-    public synchronized long getTotalAmount() {
+    public long getTotalAmount() {
         long sum = 0;
         for (Account account : accounts) {
             sum += account.amount;
@@ -53,11 +48,10 @@ public class BankImpl implements Bank {
     }
 
     /**
-     * {@inheritDoc}
      * <p>:TODO: This method has to be made thread-safe.
      */
     @Override
-    public synchronized long deposit(int index, long amount) {
+    public long deposit(int index, long amount) {
         if (amount <= 0)
             throw new IllegalArgumentException("Invalid amount: " + amount);
         Account account = accounts[index];
@@ -68,11 +62,10 @@ public class BankImpl implements Bank {
     }
 
     /**
-     * {@inheritDoc}
      * <p>:TODO: This method has to be made thread-safe.
      */
     @Override
-    public synchronized long withdraw(int index, long amount) {
+    public long withdraw(int index, long amount) {
         if (amount <= 0)
             throw new IllegalArgumentException("Invalid amount: " + amount);
         Account account = accounts[index];
@@ -83,11 +76,10 @@ public class BankImpl implements Bank {
     }
 
     /**
-     * {@inheritDoc}
      * <p>:TODO: This method has to be made thread-safe.
      */
     @Override
-    public synchronized void transfer(int fromIndex, int toIndex, long amount) {
+    public void transfer(int fromIndex, int toIndex, long amount) {
         if (amount <= 0)
             throw new IllegalArgumentException("Invalid amount: " + amount);
         if (fromIndex == toIndex)
@@ -105,7 +97,7 @@ public class BankImpl implements Bank {
     /**
      * Private account data structure.
      */
-    private static class Account {
+    static class Account {
         /**
          * Amount of funds in this account.
          */
