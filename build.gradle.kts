@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.4.0"
+    kotlin("jvm") version "1.5.0"
     application
 }
 
@@ -7,14 +7,14 @@ group = "ru.ifmo.mpp"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test-junit"))
-    testImplementation("org.jetbrains.kotlinx:lincheck:2.7.1")
+    testImplementation("org.jetbrains.kotlinx:lincheck:2.14.1")
 }
 
 sourceSets["main"].java.setSrcDirs(listOf("src"))
