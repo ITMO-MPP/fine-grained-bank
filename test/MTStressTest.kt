@@ -14,9 +14,9 @@ private const val INIT_PHASES = 10
 private const val PHASE_DURATION_MILLIS: Long = 1000
 
 /**
- * Multi-threaded stress test for bank implementation -- many threads and operations of various accounts.
+ * Multithreaded stress test for bank implementation -- many threads and operations of various accounts.
  *
- * This test test correctness of concurrent deposit, withdraw, transfer, and getTotalAmount operations.
+ * Tests correctness of concurrent deposit, withdraw, transfer, and getTotalAmount operations.
  * It does not check getAmount operations concurrently with the above.
  */
 class MTStressTest  {
@@ -61,7 +61,7 @@ class MTStressTest  {
         println("Average ops per phase: $stats")
     }
 
-    private inner class TestThread(private val threadNo: Int) : Thread("TestThread-$threadNo") {
+    private inner class TestThread(threadNo: Int) : Thread("TestThread-$threadNo") {
         private var rnd: ThreadLocalRandom? = null
         override fun run() {
             rnd = ThreadLocalRandom.current()

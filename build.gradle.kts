@@ -1,13 +1,18 @@
 plugins {
-    kotlin("jvm") version "1.5.0"
+    kotlin("jvm") version "1.7.10"
     application
 }
 
 group = "ru.ifmo.mpp"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 dependencies {
@@ -17,6 +22,11 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:lincheck:2.14.1")
 }
 
-sourceSets["main"].java.setSrcDirs(listOf("src"))
-sourceSets["test"].java.setSrcDirs(listOf("test"))
+sourceSets.main {
+    java.srcDir("src")
+}
+
+sourceSets.test {
+    java.srcDir("test")
+}
 
