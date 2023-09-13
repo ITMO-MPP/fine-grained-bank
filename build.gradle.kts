@@ -18,7 +18,7 @@ java {
 dependencies {
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test-junit"))
-    testImplementation("org.jetbrains.kotlinx:lincheck:2.14.1")
+    testImplementation("org.jetbrains.kotlinx:lincheck:2.23")
 }
 
 sourceSets.main {
