@@ -1,9 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.9.10"
     application
 }
 
-group = "ru.ifmo.mpp"
+group = "ru.itmo.mpp"
 
 repositories {
     mavenCentral()
@@ -11,12 +11,11 @@ repositories {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test-junit"))
     testImplementation("org.jetbrains.kotlinx:lincheck:2.14.1")

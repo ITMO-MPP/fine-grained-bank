@@ -1,6 +1,6 @@
 import kotlin.test.*
 
-private val N = 10
+private const val N = 10
 
 /**
  * Functional single-threaded test-suite for bank implementation.
